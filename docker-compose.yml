@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./portal-sever
+    ports:
+      - "5108:8080"
+    container_name: portal-sever
+
+  frontend:
+    build:
+      context: ./portal-ui-user
+    ports:
+      - "3000:80"
+    container_name: portal-ui-user
+    depends_on:
+      - backend
